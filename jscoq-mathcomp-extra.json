@@ -1,0 +1,22 @@
+{
+    "rootdir": "workdir",
+    "builddir": "coq-pkgs",
+    "bundle": "mathcomp-extra",
+    "projects": {
+        "mathcomp-finmap": {
+            "finmap": {
+                "prefix": "mathcomp.finmap"
+            }
+        },
+        "mathcomp-bigenough": {
+            "bigenough": {
+                "prefix": "mathcomp.bigenough"
+            }
+        },
+        "mathcomp-multinomials": {
+            "multinomials": {
+                "prefix": "mathcomp.multinomials"
+            }
+        }
+    }
+}

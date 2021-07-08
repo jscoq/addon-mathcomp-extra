@@ -1,0 +1,11 @@
+{
+    "name": "@jscoq/mathcomp-extra",
+    "description": "More Mathematical Components for jsCoq 0.13",
+    "version": "0.13.1",
+    "files": ["README.md", "coq-pkgs"],
+    "repository": {
+        "type": "git",
+        "url": "github:jscoq/addon-mathcomp-extra"
+    },
+    "license": "AGPL-3.0-or-later"
+}
