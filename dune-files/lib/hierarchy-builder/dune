@@ -1,0 +1,6 @@
+(coq.theory
+ (name HB)
+ (package coq-hierarchy-builder))
+
+(env
+ (_ (env-vars (COQPATH /tmp/jscoq-addons))))

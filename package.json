@@ -1,7 +1,7 @@
 {
     "name": "@jscoq/mathcomp-extra",
-    "description": "More Mathematical Components for jsCoq 0.13",
-    "version": "0.13.1",
+    "description": "More Mathematical Components for jsCoq",
+    "version": "0.14.0",
     "files": ["README.md", "coq-pkgs"],
     "repository": {
         "type": "git",

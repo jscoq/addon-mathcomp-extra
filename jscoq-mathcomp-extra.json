@@ -17,6 +17,11 @@
             "multinomials": {
                 "prefix": "mathcomp.multinomials"
             }
+        },
+        "hierarchy-builder": {
+            "hierarchy-builder": {
+                "prefix": "HB"
+            }
         }
     }
 }
