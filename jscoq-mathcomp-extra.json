@@ -18,5 +18,25 @@
                 "prefix": "mathcomp.multinomials"
             }
         }
+        "mathcomp-real-closed": {
+            "real-closed": {
+                "prefix": "mathcomp.real_closed"
+            }
+        }
+        "matchomp-zify": {
+            "mczify": {
+                "prefix": "mathcomp.zify"
+            }
+        }
+        "algebra-tactics": {
+            "algebra-tactics": {
+                "prefix": "mathcomp.algebra_tactics"
+            }
+        }
+        "mathcomp-analysis": {
+            "analysis": {
+                "prefix": "mathcomp.analysis"
+            }
+        }
     }
 }
