@@ -5,7 +5,7 @@
   (package coq-mathcomp-bigenough)
   (package coq-mathcomp-multinomials)
   (package coq-hierarchy-builder)
-  ;(package coq-mathcomp-analysis)
+  (package coq-mathcomp-analysis)
   (:json jscoq-mathcomp-extra.json))
  (action
   (run npx %{env:pkgtool=jscoq} build %{json})))

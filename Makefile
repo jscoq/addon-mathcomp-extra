@@ -18,20 +18,21 @@ HB_TAG = v1.2.0
 HB_WORKDIR = workdir/hierarchy-builder
 
 ANALYSIS_REPO = https://github.com/math-comp/analysis.git
-ANALYSIS_TAG = 0.3.10
+ANALYSIS_TAG = 0.3.12
 ANALYSIS_WORKDIR = workdir/analysis
 
 GIT_FLAGS = -c advice.detachedHead=false --depth=1
 
 .PHONY: all get elpi-hack
 
-all: $(FINMAP_WORKDIR) $(BIGENOUGH_WORKDIR) $(MULTINOMIALS_WORKDIR) $(HB_WORKDIR) elpi-hack
+all: $(FINMAP_WORKDIR) $(BIGENOUGH_WORKDIR) $(MULTINOMIALS_WORKDIR) $(HB_WORKDIR) $(ANALYSIS_WORKDIR) elpi-hack
 	# Some libs depend on other libs, these should be installed until composed build lands in Dune
 	dune build $(FINMAP_WORKDIR)/coq-mathcomp-finmap.install       && dune install coq-mathcomp-finmap
 	dune build $(BIGENOUGH_WORKDIR)/coq-mathcomp-bigenough.install && dune install coq-mathcomp-bigenough
+	dune build $(HB_WORKDIR)/coq-hierarchy-builder.install         && dune install coq-hierarchy-builder
 	dune build
 
-get: $(FINMAP_WORKDIR) $(BIGENOUGH_WORKDIR) $(MULTINOMIALS_WORKDIR) $(HB_WORKDIR)
+get: $(FINMAP_WORKDIR) $(BIGENOUGH_WORKDIR) $(MULTINOMIALS_WORKDIR) $(HB_WORKDIR) $(ANALYSIS_WORKDIR)
 
 elpi-hack:
 	mkdir -p /tmp/jscoq-addons/elpi
@@ -54,6 +55,8 @@ $(HB_WORKDIR):
 
 $(ANALYSIS_WORKDIR):
 	git clone $(GIT_FLAGS) -b $(ANALYSIS_TAG) $(ANALYSIS_REPO) $(ANALYSIS_WORKDIR)
+	( cd $(ANALYSIS_WORKDIR) && git apply ../../etc/analysis.patch )
+	cp -r dune-files/lib/analysis/* $(ANALYSIS_WORKDIR)/
 
 install:
 	dune install ${addprefix coq-mathcomp-, $(COMPONENTS)}
