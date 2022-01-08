@@ -22,6 +22,11 @@
             "hierarchy-builder": {
                 "prefix": "HB"
             }
+        },
+        "mathcomp-analysis": {
+            "analysis/theories": {
+                "prefix": "mathcomp.analysis"
+            }
         }
     }
 }
