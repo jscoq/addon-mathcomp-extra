@@ -6,19 +6,19 @@ FINMAP_TAG = 1.5.1
 FINMAP_WORKDIR = workdir/finmap
 
 BIGENOUGH_REPO = https://github.com/math-comp/bigenough.git
-BIGENOUGH_TAG = 1.0.0
+BIGENOUGH_TAG = 1.0.1
 BIGENOUGH_WORKDIR = workdir/bigenough
 
 MULTINOMIALS_REPO = https://github.com/math-comp/multinomials.git
-MULTINOMIALS_TAG = 1.5.4
+MULTINOMIALS_TAG = 1.5.5
 MULTINOMIALS_WORKDIR = workdir/multinomials
 
 HB_REPO = https://github.com/math-comp/hierarchy-builder.git
-HB_TAG = v1.2.0
+HB_TAG = v1.2.1
 HB_WORKDIR = workdir/hierarchy-builder
 
 ANALYSIS_REPO = https://github.com/math-comp/analysis.git
-ANALYSIS_TAG = 0.3.12
+ANALYSIS_TAG = 0.3.13
 ANALYSIS_WORKDIR = workdir/analysis
 
 GIT_FLAGS = -c advice.detachedHead=false --depth=1
