@@ -2,7 +2,7 @@
 COMPONENTS = finmap bigenough multinomials analysis
 
 FINMAP_REPO = https://github.com/math-comp/finmap.git
-FINMAP_TAG = 1.5.1
+FINMAP_TAG = 1.5.2
 FINMAP_WORKDIR = workdir/finmap
 
 BIGENOUGH_REPO = https://github.com/math-comp/bigenough.git
@@ -14,11 +14,11 @@ MULTINOMIALS_TAG = 1.5.5
 MULTINOMIALS_WORKDIR = workdir/multinomials
 
 HB_REPO = https://github.com/math-comp/hierarchy-builder.git
-HB_TAG = v1.2.1
+HB_TAG = v1.3.0
 HB_WORKDIR = workdir/hierarchy-builder
 
 ANALYSIS_REPO = https://github.com/math-comp/analysis.git
-ANALYSIS_TAG = 0.3.13
+ANALYSIS_TAG = 0.5.3
 ANALYSIS_WORKDIR = workdir/analysis
 
 GIT_FLAGS = -c advice.detachedHead=false --depth=1
@@ -40,7 +40,7 @@ elpi-hack:
 
 $(FINMAP_WORKDIR):
 	git clone $(GIT_FLAGS) -b $(FINMAP_TAG) $(FINMAP_REPO) $(FINMAP_WORKDIR)
-	( cd $(FINMAP_WORKDIR) && git apply ../../etc/finmap.patch )
+	#( cd $(FINMAP_WORKDIR) && git apply ../../etc/finmap.patch )
 
 $(BIGENOUGH_WORKDIR):
 	git clone $(GIT_FLAGS) -b $(BIGENOUGH_TAG) $(BIGENOUGH_REPO) $(BIGENOUGH_WORKDIR)
@@ -51,11 +51,12 @@ $(MULTINOMIALS_WORKDIR):
 
 $(HB_WORKDIR):
 	git clone $(GIT_FLAGS) -b $(HB_TAG) $(HB_REPO) $(HB_WORKDIR)
+	( cd $(HB_WORKDIR) && git apply ../../etc/hierarchy-builder-8.16.patch )
 	cp dune-files/lib/hierarchy-builder/* $(HB_WORKDIR)/
 
 $(ANALYSIS_WORKDIR):
 	git clone $(GIT_FLAGS) -b $(ANALYSIS_TAG) $(ANALYSIS_REPO) $(ANALYSIS_WORKDIR)
-	( cd $(ANALYSIS_WORKDIR) && git apply ../../etc/analysis.patch )
+	( cd $(ANALYSIS_WORKDIR) && git apply ../../etc/analysis-8.16.patch )
 	cp -r dune-files/lib/analysis/* $(ANALYSIS_WORKDIR)/
 
 install:

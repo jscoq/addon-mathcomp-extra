@@ -1,0 +1,72 @@
+diff --git a/theories/cardinality.v b/theories/cardinality.v
+index 438af03..76393c6 100644
+--- a/theories/cardinality.v
++++ b/theories/cardinality.v
+@@ -889,7 +889,6 @@ apply/seteqP; split=> [x [i /=]|x [i Ai Fix]].
+ by exists i => //; case: cid => // B AB /=; move: Ai; rewrite AB.
+ Qed.
+ 
+-#[deprecated(note="Use -bigsetU_fset_set instead")]
+ Lemma bigcup_fset_set T (I : choiceType) (A : set I) (F : I -> set T) :
+   finite_set A -> \bigcup_(i in A) F i = \big[setU/set0]_(i <- fset_set A) F i.
+ Proof. by move=> /bigsetU_fset_set->. Qed.
+@@ -901,7 +900,6 @@ Proof.
+ by move=> *; rewrite bigcup_mkcondr big_mkcond -bigcup_fset_set ?mem_setE.
+ Qed.
+ 
+-#[deprecated(note="Use -bigsetU_fset_set_cond instead")]
+ Lemma bigcup_fset_set_cond T (I : choiceType) (A : set I) (F : I -> set T)
+     (P : pred I) : finite_set A ->
+   \bigcup_(i in A `&` P) F i = \big[setU/set0]_(i <- fset_set A | P i) F i.
+@@ -913,7 +911,6 @@ Proof.
+ by move=> *; apply: setC_inj; rewrite setC_bigcap setC_bigsetI bigsetU_fset_set.
+ Qed.
+ 
+-#[deprecated(note="Use -bigsetI_fset_set instead")]
+ Lemma bigcap_fset_set T (I : choiceType) (A : set I) (F : I -> set T) :
+   finite_set A -> \bigcap_(i in A) F i = \big[setI/setT]_(i <- fset_set A) F i.
+ Proof. by move=> /bigsetI_fset_set->. Qed.
+diff --git a/theories/classical_sets.v b/theories/classical_sets.v
+index e14ea7e..b93fd6e 100644
+--- a/theories/classical_sets.v
++++ b/theories/classical_sets.v
+@@ -2338,7 +2338,6 @@ Proof.
+ by move=> tF i j Di Dj [x [[Fix Gix] [Fjx Gjx]]]; apply tF => //; exists x.
+ Qed.
+ 
+-#[deprecated(note="Use trivIset_setIl instead")]
+ Lemma trivIset_setI T I D (F : I -> set T) X :
+   trivIset D F -> trivIset D (fun i => X `&` F i).
+ Proof. exact: trivIset_setIl. Qed.
+diff --git a/theories/fsbigop.v b/theories/fsbigop.v
+index c1f0ec7..cae7a80 100644
+--- a/theories/fsbigop.v
++++ b/theories/fsbigop.v
+@@ -245,7 +245,6 @@ rewrite (fsbigE [:: x])//= ?big_cons ?big_nil ?ifT ?inE ?Monoid.simpm//.
+ by move=> i ->; rewrite inE eqxx.
+ Qed.
+ 
+-#[deprecated(note="Use fsbigID instead")]
+ Lemma full_fsbigID (R : Type) (idx : R) (op : Monoid.com_law idx)
+     (I : choiceType) (B : set I) (A : set I) (F : I -> R) :
+   finite_set (A `&` F @^-1` [set~ idx]) ->
+@@ -400,7 +399,6 @@ Lemma fsbig_image {I J : choiceType} P (h : I -> J) (F : J -> R) : set_inj P h -
+ Proof. by move=> /inj_bij; apply: reindex_fsbig. Qed.
+ 
+ (* Lemma reindex_inside I F P ...  : finite_set (P `&` F @` [set~ id]) -> ... *)
+-#[deprecated(note="use reindex_fsbig, fsbig_image or reindex_fsbigT instead")]
+ Lemma reindex_inside {I J : choiceType} P Q (h : I -> J) (F : J -> R) :
+   bijective h -> P `<=` h @` Q -> Q `<=` h @^-1` P ->
+   \big[op/idx]_(j \in P) F j = \big[op/idx]_(i \in Q) F (h i).
+diff --git a/theories/trigo.v b/theories/trigo.v
+index 3a50493..5853d45 100644
+--- a/theories/trigo.v
++++ b/theories/trigo.v
+@@ -592,7 +592,6 @@ case: xgetP => [_->[]//|/(_ x)/=].
+ by rewrite cs0 (le_trans _ x1)// x2 => /not_andP[].
+ Qed.
+ 
+-#[deprecated(note="Use pihalf_ge1 and pihalf_lt2 instead")]
+ Lemma pihalf_02 : 0 < pi / 2 < 2.
+ Proof.
+ have [pih02 cpih] := pihalf_02_cos_pihalf.

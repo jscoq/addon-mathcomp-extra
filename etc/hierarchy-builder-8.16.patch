@@ -1,0 +1,9 @@
+diff --git a/HB/common/compat_all.elpi b/HB/common/compat_all.elpi
+index 5cd6cad..d52f47b 100644
+--- a/HB/common/compat_all.elpi
++++ b/HB/common/compat_all.elpi
+@@ -1,2 +1,3 @@
+ pred compat.coercion.declare i:coercion.
+-compat.coercion.declare C :- @global! => @reversible! => coq.coercion.declare C.
++compat.coercion.declare C :- @global! => coq.coercion.declare C.
++
