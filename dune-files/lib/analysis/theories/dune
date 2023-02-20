@@ -1,6 +1,0 @@
-(coq.theory
- (name mathcomp.analysis)
- (package coq-mathcomp-analysis))
-
-(dirs :standard \ misc)
-(include_subdirs qualified)

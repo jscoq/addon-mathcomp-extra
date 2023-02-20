@@ -1,3 +1,0 @@
-(coq.theory
- (name mathcomp.bigenough)
- (package coq-mathcomp-bigenough))
